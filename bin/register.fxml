@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller_login">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller_register">
    <top>
       <AnchorPane prefHeight="103.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
@@ -18,34 +18,29 @@
                   <Font name="System Bold Italic" size="24.0" />
                </font>
             </Text>
+            <Button fx:id="exit_btn" layoutX="539.0" layoutY="14.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="46.0" text="Exit">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
          </children>
       </AnchorPane>
    </top>
    <center>
       <AnchorPane prefHeight="622.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="login_btn" layoutX="254.0" layoutY="181.0" mnemonicParsing="false" onAction="#SwitchToMainpage" prefHeight="26.0" prefWidth="101.0" text="Log In">-->
+            <Button fx:id="register_btn" alignment="CENTER" layoutX="252.0" layoutY="203.0" mnemonicParsing="false" onAction="#getData" prefHeight="32.0" prefWidth="96.0" text="Register">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Button fx:id="register_btn" alignment="CENTER" layoutX="268.0" layoutY="246.0" mnemonicParsing="false" onAction="#SwitchToRegister" prefHeight="26.0" prefWidth="74.0" text="Register">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-            </Button>
-            <Text layoutX="287.0" layoutY="231.0" strokeType="OUTSIDE" strokeWidth="0.0" text="OR" textAlignment="CENTER" wrappingWidth="36.224609375">
-               <font>
-                  <Font name="System Italic" size="14.0" />
-               </font>
-            </Text>
-            <TextField fx:id="username_input" layoutX="180.0" layoutY="69.0" prefHeight="25.0" prefWidth="250.0" />
+            <TextField fx:id="username_input" layoutX="180.0" layoutY="69.0" prefHeight="25.0" prefWidth="250.0" promptText="Set your username:" />
             <Text layoutX="180.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username:" wrappingWidth="71.892578125">
                <font>
                   <Font name="System Italic" size="12.0" />
                </font>
             </Text>
-            <PasswordField fx:id="password_input" layoutX="180.0" layoutY="135.0" prefHeight="25.0" prefWidth="250.0" />
+            <PasswordField fx:id="password_input" layoutX="180.0" layoutY="135.0" prefHeight="25.0" prefWidth="250.0" promptText="Set your password:" />
             <Text layoutX="180.0" layoutY="131.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password:" wrappingWidth="79.09259033203125">
                <font>
                   <Font name="System Italic" size="12.0" />

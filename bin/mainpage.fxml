@@ -5,7 +5,7 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller_mainpage">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scene_controller">
    <children>
       <TableView fx:id="Tabela_radiev" layoutX="22.0" layoutY="52.0" prefHeight="296.0" prefWidth="377.0">
         <columns>
@@ -17,7 +17,7 @@
         </columns>
       </TableView>
       <Button fx:id="brisi_btn" layoutX="466.0" layoutY="289.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="66.0" text="Izbriši" />
-      <Button fx:id="uredi_btn" layoutX="466.0" layoutY="218.0" mnemonicParsing="false" onAction="#changeWindow" prefHeight="25.0" prefWidth="66.0" text="Uredi" />
+      <Button fx:id="uredi_btn" layoutX="466.0" layoutY="218.0" mnemonicParsing="false" onAction="#SwitchToUredi" prefHeight="25.0" prefWidth="66.0" text="Uredi" />
       <Button fx:id="dodaj_btn" layoutX="466.0" layoutY="146.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="66.0" text="Dodaj" />
    </children>
 </AnchorPane>
