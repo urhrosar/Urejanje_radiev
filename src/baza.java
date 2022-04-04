@@ -1,4 +1,6 @@
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -56,6 +58,37 @@ public class baza {
         st.close();
 
         return login_success;
+    }
+
+    public List<String> get_main_data() throws SQLException {
+        connect();
+
+        Statement st = db.createStatement();
+        ResultSet rs = st.executeQuery("SELECT data();");
+
+        List<String> data = new ArrayList<>();
+
+        while (rs.next()) {
+            data.add(rs.getString(1));
+        }
+
+        for (int i = 0; i < data.size(); i++) {
+            System.out.println(data.get(i));
+        }
+        rs.close();
+        st.close();
+
+        return data;
+    }
+
+    public void delete(int id) throws SQLException {
+        connect();
+
+        Statement st = db.createStatement();
+        ResultSet rs = st.executeQuery(String.format("SELECT remove(%s);", id));
+
+        rs.close();
+        st.close();
     }
 
     
