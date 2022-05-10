@@ -16,8 +16,9 @@
             <TableColumn fx:id="naslov_radia" prefWidth="107.20001220703125" text="Naslov" />
         </columns>
       </TableView>
-      <Button fx:id="brisi_btn" layoutX="466.0" layoutY="289.0" mnemonicParsing="false" onAction="#delete_item" prefHeight="25.0" prefWidth="66.0" text="Izbriši" />
-      <Button fx:id="uredi_btn" layoutX="466.0" layoutY="218.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="66.0" text="Uredi" />
-      <Button fx:id="dodaj_btn" layoutX="466.0" layoutY="146.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="66.0" text="Dodaj" />
+      <Button fx:id="brisi_btn" layoutX="466.0" layoutY="230.0" mnemonicParsing="false" onAction="#delete_item" prefHeight="25.0" prefWidth="66.0" text="Izbriši" />
+      <Button fx:id="uredi_btn" layoutX="466.0" layoutY="174.0" mnemonicParsing="false" onAction="#SwitchToUredi_" prefHeight="25.0" prefWidth="66.0" text="Uredi" />
+      <Button fx:id="dodaj_btn" layoutX="466.0" layoutY="117.0" mnemonicParsing="false" onAction="#SwitchToDodaj_" prefHeight="25.0" prefWidth="66.0" text="Dodaj" />
+      <Button fx:id="Izvozi_btn" layoutX="466.0" layoutY="282.0" mnemonicParsing="false" onAction="#Izvozi_" prefHeight="25.0" prefWidth="66.0" text="Izvozi" />
    </children>
 </AnchorPane>

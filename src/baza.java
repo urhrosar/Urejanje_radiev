@@ -29,14 +29,15 @@ public class baza {
 
     public void writeToDatabase(String userName, String userPass)  {
         try{
-
+            
             connect();
             
             Statement st = db.createStatement();
-            ResultSet rs = st.executeQuery(String.format("INSERT INTO uporabniki(uporabnisko, geslo) VALUES('%s', '%s')", userName, userPass));
-            
+            ResultSet rs = st.executeQuery(String.format("SELECT register('%s', '%s')", userName, userPass));
             rs.close();
             st.close();
+
+            db.close();
         }
         catch(Exception e){}
 
@@ -56,6 +57,8 @@ public class baza {
         }
         rs.close();
         st.close();
+
+        db.close();
 
         return login_success;
     }
@@ -78,6 +81,8 @@ public class baza {
         rs.close();
         st.close();
 
+        db.close();
+
         return data;
     }
 
@@ -89,7 +94,79 @@ public class baza {
 
         rs.close();
         st.close();
+
+        db.close();
     }
 
+
+    public List<String> get_kraji() throws SQLException {
+        connect();
+
+        Statement st = db.createStatement();
+        ResultSet rs = st.executeQuery(String.format("SELECT select_kraji();"));
+
+        List<String> data = new ArrayList<>();
+
+        while (rs.next()) {
+            data.add(rs.getString(1));
+        }
+
+        for (int i = 0; i < data.size(); i++) {
+            //System.out.println(data.get(i));
+        }
+        rs.close();
+        st.close();
+
+        db.close();
+
+        return data;
+    }
+
+    public String get_data(int id) throws SQLException {
+        connect();
+
+        Statement st = db.createStatement();
+        ResultSet rs = st.executeQuery(String.format("SELECT select_item(%s);",id));
+
+        List<String> data = new ArrayList<>();
+
+        while (rs.next()) {
+            data.add(rs.getString(1));
+        }
+
+        for (int i = 0; i < data.size(); i++) {
+            //System.out.println(data.get(i));
+        }
+        rs.close();
+        st.close();
+
+        db.close();
+
+        return data.get(0);
+    }
+
+    public void insert_radio(String ime_, String frekvenca_, String naslov_, String postna_st_) throws SQLException{
+        connect();
+
+        Statement st = db.createStatement();
+        ResultSet rs = st.executeQuery(String.format(String.format("SELECT insert_radija('%s', '%s', '%s', %s);", ime_, frekvenca_, naslov_, Integer.parseInt(postna_st_))));
+        
+        rs.close();
+        st.close();
+
+        db.close();
+    }
+
+    public void update_radija(String id_, String ime_, String frekvenca_, String naslov_, String postna_st_) throws SQLException{
+        connect();
+
+        Statement st = db.createStatement();
+        ResultSet rs = st.executeQuery(String.format(String.format("SELECT update_radija(%s, '%s', '%s', '%s', %s);", Integer.parseInt(id_), ime_, frekvenca_, naslov_, Integer.parseInt(postna_st_))));
+        
+        rs.close();
+        st.close();
+
+        db.close();
+    }
     
 }

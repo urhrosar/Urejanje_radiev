@@ -1,3 +1,7 @@
+import java.io.FileOutputStream;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
 import java.net.URL;
 import java.util.*;
 import javafx.beans.property.SimpleStringProperty;
@@ -6,6 +10,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.*;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 
 public class controller_mainpage implements Initializable { 
 
@@ -104,5 +109,43 @@ public class controller_mainpage implements Initializable {
         return Integer.parseInt(Tabela_radiev.getSelectionModel().getSelectedItem().getId_radia());
     }
 
+    public void SwitchToUredi_(ActionEvent event) throws Exception {
+        System.out.println(get_selectedItemId());
+        new launcher().SwitchToUredi(get_selectedItemId());
+        ((Stage)dodaj_btn.getScene().getWindow()).close();
+        
+    }
+
+    public void SwitchToDodaj_(ActionEvent event) throws Exception {
+        new launcher().SwitchToDodaj();
+        ((Stage)dodaj_btn.getScene().getWindow()).close();
+    }
+
+
+
+    public void Izvozi_(ActionEvent event) throws Exception {
+
+        List<String> data = new baza().get_main_data();
+
+        ObservableList<element> tableElements = FXCollections.observableArrayList();
+        String izpis = "";
+        for (int i = 0; i < data.size(); i++) {
+            String[] izpisf = data.get(i).toString().replace("(", "").replace(")", "").replace("\"", "").split(",");
+            izpis += izpisf[0] + ";" + izpisf[1] + ";" + izpisf[2] + ";" + izpisf[3] + ";" + izpisf[4] + "\n";
+        }
+
+
+        OutputStream os = new FileOutputStream("izvoz.csv");
+        os.write(239);
+        os.write(187);
+        os.write(191);
+    
+        PrintWriter w = new PrintWriter(new OutputStreamWriter(os, "UTF-8"));
+        System.out.println(izpis);
+        w.print(izpis);
+        w.flush();
+        w.close();
+    //use ; for new cell and \n for new row
+    }
 
 }

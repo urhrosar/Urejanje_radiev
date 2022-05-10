@@ -69,16 +69,39 @@ public class launcher extends Application {
 
     
 
-    public void SwitchToUredi() throws Exception
+    public void SwitchToUredi(int item_id) throws Exception
     {
-        Parent main = FXMLLoader.load(getClass().getResource("uredi.fxml"));
         Stage stage = new Stage();
-        //stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(main);
+        FXMLLoader root = new FXMLLoader(getClass().getResource("edit.fxml"));
+        Scene scene = new Scene(root.load());
         stage.setScene(scene);
+        controller_edit controller = root.getController();
+        controller.init(item_id);
+        stage.setResizable(false);
+        stage.show();
+
+
+    }
+
+    void SwitchToDodaj() throws Exception  {
+        //Parent root = FXMLLoader.load(getClass().getResource("register.fxml"));
+        //stage= (Stage) ((Node) event.getSource()).getScene().getWindow();
+        //scene = new Scene(root);
+        //stage.setScene(scene);
+        //stage.show();
+        Stage stage = new Stage();
+        Parent register = FXMLLoader.load(getClass().getResource("add.fxml"));
+        Scene scene = new Scene(register);
+        //scene.getStylesheets().add(getClass().getResource("GUI/style.css").toExternalForm());
+        stage.setResizable(false);
+        //stage.getIcons().add(new Image("assets/app_icon_b.png"));
+        stage.setTitle("Dodaj");
+        stage.setScene(scene);
+        stage.setResizable(false);
         stage.show();
 
     }
+
     public static void main(String[] args) {
         launch(args);
     }

@@ -1,3 +1,6 @@
+import java.math.BigInteger;
+import java.security.MessageDigest;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -31,6 +34,7 @@ public class controller_register {
         new launcher().SwitchToLoginpage();
         ((Stage) register_btn.getScene().getWindow()).close();
     }
+
 
 }
 
